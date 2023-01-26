@@ -1,48 +1,43 @@
 ﻿@page
-<div class="container">
-    <div class="row p-1">
-        <h2 class="col-lg-5">Global Chat</h2>
-    </div>
-    <div class="row p-1">
-        <div class="col-1">User</div>
-        <div class="col-5"><input type="text" id="userInput" /></div>
-    </div>
-    <div class="row p-1">
-        <div class="col-1">Message</div>
-        <div class="col-5"><input type="text" class="w-100" id="messageInput" /></div>
-    </div>
-    <div class="row p-1">
-        <div class="col-1">Group name</div>
-        <div class="col-5"><input type="text" class="w-100" id="groupNameInput" /></div>
-    </div>
-    <div class="row p-1">
-        <div class="col-6 text-end">
-            <input type="button" id="sendButton" value="Send Message" />
-        </div>
-    </div>
-    <div class="row p-1">
-        <div class="col-6 text-end">
-            <input type="button" id="sendPrivateButton" value="Send Private Message" />
-        </div>
-    </div>
-    <div class="row p-1">
-        <div class="col-6 text-end">
-            <input type="button" id="sendGroupMessageButton" value="Send Message To Group" />
-        </div>
-    </div>
-    <div class="row p-1">
-        <div class="col-6">
-            <hr />
-        </div>
-    </div>
-    <div class="row p-1">
-        <div class="col-6">
-            <ul id="messagesList"></ul>
-        </div>
-    </div>
-</div>
+    <section style="background-color: #eee;">
+        <div class="container py-5">
 
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-4">
 
+                    <div class="card" id="chat1" style="border-radius: 15px;">
+                        <div class="card-header d-flex justify-content-between align-items-center p-3 bg-primary text-white border-bottom-0"
+                             style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                            <i class="fas fa-angle-left"></i>
+                            <p class="mb-0 fw-bold"> User: </p>
+                            <input type="text" id="userInput" />
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-row justify-content-center mb-4">
+                                <div class="p-3 me-3 border" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
+                                    <ul id="messagesList"></ul>
+                                </div>
+                            </div>
+                            <div class="form-outline">
+                                <input type="text" class="form-control" id="messageInput" rows="4" placeholder="Type your message" disabled>
+                            </div>
+                            <input type="button" id="sendButton" class="btn btn-primary" value="Send" disabled hidden/>
 
-    <script src="~/js/signalr/dist/browser/signalr.js"></script>
-    <script src="~/js/chat.js"></script>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center p-3 bg-primary text-white border-bottom-0"
+                             style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+                            <i class="fas fa-angle-left"></i>
+                            <p class="mb-0 fw-bold">Chat: </p>
+                            <input type="text" class="w-100" id="groupNameInput" />
+                            <input type="button" id="joinButton" class="btn btn-success" value="Join"/>
+                            <input type="button" id="leaveButton" class="btn btn-danger" value="Leave" disabled hidden/>
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
