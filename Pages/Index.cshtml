@@ -1,43 +1,55 @@
 ﻿@page
     <section style="background-color: #eee;">
         <div class="container py-5">
-
             <div class="row d-flex justify-content-center">
                 <div class="col-md-8 col-lg-6 col-xl-4">
-
-                    <div class="card" id="chat1" style="border-radius: 15px;">
-                        <div class="card-header d-flex justify-content-between align-items-center p-3 bg-primary text-white border-bottom-0"
-                             style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
-                            <i class="fas fa-angle-left"></i>
-                            <p class="mb-0 fw-bold"> User: </p>
-                            <input type="text" id="userInput" />
-                            <i class="fas fa-times"></i>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex flex-row justify-content-center mb-4">
-                                <div class="p-3 me-3 border" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
-                                    <ul id="messagesList"></ul>
+                    <div class="outputList">
+                        <p id="groupList"></p>
+                    </div>
+                        <div class="card" id="chat1" style="border-radius: 15px;">
+                            <div class="card-header d-flex justify-content-between align-items-center p-3 bg-primary text-white border-bottom-0"
+                                 style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                                <i class="fas fa-angle-left"></i>
+                                <p class="mb-0 fw-bold"> User: </p>
+                                <input type="text" id="userInput" />
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex flex-row justify-content-center mb-4">
+                                    <p id="messagesList"></p>
                                 </div>
+                                <div class="form-outline">
+                                    <input type="text" class="form-control" id="messageInput" rows="4" placeholder="Type your message" disabled>
+                                </div>
+                                <input type="button" id="sendButton" class="btn btn-primary" value="Send" disabled hidden />
                             </div>
-                            <div class="form-outline">
-                                <input type="text" class="form-control" id="messageInput" rows="4" placeholder="Type your message" disabled>
+                            <div class="card-footer d-flex justify-content-between align-items-center p-3 bg-primary text-white border-bottom-0"
+                                 style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+                                <i class="fas fa-angle-left"></i>
+                                <p class="mb-0 fw-bold">Chat: </p>
+                                <input type="text" class="w-100" id="groupNameInput" />
+                                <input type="button" id="joinButton" class="btn btn-success" value="Join" />
+                                <input type="button" id="leaveButton" class="btn btn-danger" value="Leave" disabled hidden />
+                                <i class="fas fa-times"></i>
                             </div>
-                            <input type="button" id="sendButton" class="btn btn-primary" value="Send" disabled hidden/>
-
-                        </div>
-                        <div class="card-footer d-flex justify-content-between align-items-center p-3 bg-primary text-white border-bottom-0"
-                             style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-                            <i class="fas fa-angle-left"></i>
-                            <p class="mb-0 fw-bold">Chat: </p>
-                            <input type="text" class="w-100" id="groupNameInput" />
-                            <input type="button" id="joinButton" class="btn btn-success" value="Join"/>
-                            <input type="button" id="leaveButton" class="btn btn-danger" value="Leave" disabled hidden/>
-                            <i class="fas fa-times"></i>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </section>
+<style>
+    
+    /*.card_body and #messageList positions the container messageList in center of .card_body  */
+    .card_body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #messagesList {
+        width: 19em;
+    }
+
+</style>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/chat.js"></script>
